@@ -68,8 +68,12 @@ public class Practica1 {
           int pared_y=(int)(Math.random()*34)+1;
           mapa[pared_x][pared_y]="$";
       }
-      
+       mapa[35][17]="0";
      
+       
+      
+    }
+     public static void refresh_map(){
       for(int mapeo_y=0;mapeo_y<36;mapeo_y++)
       {
       for(int mapeo_x=0;mapeo_x<70;mapeo_x++)
@@ -78,8 +82,7 @@ public class Practica1 {
       }
       System.out.println();
       }
-      
-    }
+     }
     public static void menu(){
           String selector_menu = "";
         System.out.println("1)Iniciar Juego");
@@ -87,22 +90,16 @@ public class Practica1 {
         System.out.println("3)Historial");
         System.out.println("4)Salir");
         System.out.println("Ingrese una Opcion:");
-          try{
-        selector_menu=leer.next();
-          }
-        catch(Exception e){
-                  
-                  
-                    menu();
-                }
+         
+        selector_menu=leer.next(); 
         switch(selector_menu){
             case "1": 
                 System.out.print("Ingrese su nombre: ");
               
                 nombre_jugador=leer.next();
                 
-                
-                  mapa();
+               mapa();
+                 
                 break;
               
             case "2": 
@@ -115,6 +112,4 @@ public class Practica1 {
                 System.out.println("Opcion no valida porfavor intente de nuevo");menu();
         }
     }
-   
-  
 }
