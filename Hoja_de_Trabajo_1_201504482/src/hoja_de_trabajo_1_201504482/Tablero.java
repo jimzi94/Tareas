@@ -5,6 +5,15 @@
  */
 package hoja_de_trabajo_1_201504482;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
 
@@ -14,13 +23,17 @@ import javax.swing.JButton;
  */
 public class Tablero extends javax.swing.JFrame {
 
-  public static JButton tablero[][]=new JButton[4][4 ];
+  public static JButton tablero[][]=new JButton[4][4];
     public Tablero() {
         initComponents();
         matriz_tablero();
         Nombres nomb = null;
         jLabel1.setText(nomb.jTextField1.getText());
         jLabel2.setText(nomb.jTextField2.getText());
+        
+        
+        
+        
     }
 
     /**
@@ -35,6 +48,9 @@ public class Tablero extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,18 +69,33 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel1");
 
+        jScrollPane2.setViewportView(jList1);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Ganadores");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addComponent(jLabel1)
-                .addGap(127, 127, 127)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(jLabel2)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(552, 552, 552)
+                        .addComponent(jLabel2)
+                        .addContainerGap(115, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(151, 151, 151))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,9 +103,15 @@ public class Tablero extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,7 +151,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
     }
-    public void matriz_tablero(){
+    public static void matriz_tablero(){
     for(int fila=1;fila<4;fila++){
     for(int columna=1;columna<4;columna++){
         tablero[fila][columna]=new boton(48*columna,48*fila,48,48);
@@ -125,15 +162,38 @@ public class Tablero extends javax.swing.JFrame {
      
     }
    
-public void ganar(){
-if(tablero[1][1].getText().equals("X")){
-     System.out.println("hola mundo");
-     }
 
+ public static void guardar(String jugador) throws IOException{
+File fout = new File("archivo.txt");
+FileOutputStream fos = new FileOutputStream(fout,true);
+
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+
+    bw.write(jugador);
+    bw.newLine();
+    bw.close();
+ FileReader fr=new FileReader("archivo.txt");
+ BufferedReader br = null;
+            //Leemos el fichero y lo mostramos por pantalla
+            int valor=fr.read();
+            String sCurrentLine;
+            DefaultListModel modelo = new DefaultListModel();
+           br = new BufferedReader(fr);
+
+			while ((sCurrentLine = br.readLine()) != null) {
+				System.out.println(sCurrentLine);
+                                modelo.addElement(sCurrentLine);
+			}
+                        jList1.setModel(modelo);
+            fr.close();
+       
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
+    private static javax.swing.JList<String> jList1;
+    private static javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
