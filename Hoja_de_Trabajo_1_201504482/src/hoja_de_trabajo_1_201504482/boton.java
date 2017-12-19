@@ -37,28 +37,57 @@ public class boton extends JButton implements ActionListener {
         }
         super.setEnabled(false);
         System.out.println(this.getName());
-       if((tab.tablero[1][1].getText().equals("X"))&&(tab.tablero[1][2].getText().equals("X"))&&(tab.tablero[1][3].getText().equals("X")))
+       if((Tablero.tablero[1][1].getText().equals("X"))&&(Tablero.tablero[1][2].getText().equals("X"))&&(Tablero.tablero[1][3].getText().equals("X")))
        {
                        JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
 
        }
-       else if((tab.tablero[2][1].getText().equals("X"))&&(tab.tablero[2][2].getText().equals("X"))&&(tab.tablero[2][3].getText().equals("X")))
+       else if((Tablero.tablero[2][1].getText().equals("X"))&&(Tablero.tablero[2][2].getText().equals("X"))&&(Tablero.tablero[2][3].getText().equals("X")))
        {
                               JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
        }
-        else if((tab.tablero[3][1].getText().equals("X"))&&(tab.tablero[3][2].getText().equals("X"))&&(tab.tablero[3][3].getText().equals("X")))
+        else if((Tablero.tablero[3][1].getText().equals("X"))&&(Tablero.tablero[3][2].getText().equals("X"))&&(Tablero.tablero[3][3].getText().equals("X")))
        {
                               JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
        }
-        else if((tab.tablero[1][1].getText().equals("X"))&&(tab.tablero[2][1].getText().equals("X"))&&(tab.tablero[3][1].getText().equals("X")))
+        else if((Tablero.tablero[1][1].getText().equals("X"))&&(Tablero.tablero[2][1].getText().equals("X"))&&(Tablero.tablero[3][1].getText().equals("X")))
        {
                               JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
        }
-          else if((tab.tablero[2][1].getText().equals("X"))&&(tab.tablero[2][2].getText().equals("X"))&&(tab.tablero[2][3].getText().equals("X")))
+          else if((Tablero.tablero[2][1].getText().equals("X"))&&(Tablero.tablero[2][2].getText().equals("X"))&&(Tablero.tablero[2][3].getText().equals("X")))
        {
                               JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
        }
-          else if((tab.tablero[3][1].getText().equals("X"))&&(tab.tablero[3][2].getText().equals("X"))&&(tab.tablero[3][3].getText().equals("X")))
+          else if((Tablero.tablero[3][1].getText().equals("X"))&&(Tablero.tablero[3][2].getText().equals("X"))&&(Tablero.tablero[3][3].getText().equals("X")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+       }
+       
+       
+       
+       
+          else if((Tablero.tablero[1][1].getText().equals("O"))&&(Tablero.tablero[1][2].getText().equals("O"))&&(Tablero.tablero[1][3].getText().equals("O")))
+       {
+                       JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+
+       }
+       else if((Tablero.tablero[2][1].getText().equals("O"))&&(Tablero.tablero[2][2].getText().equals("O"))&&(Tablero.tablero[2][3].getText().equals("O")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+       }
+        else if((Tablero.tablero[3][1].getText().equals("O"))&&(Tablero.tablero[3][2].getText().equals("O"))&&(Tablero.tablero[3][3].getText().equals("O")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+       }
+        else if((Tablero.tablero[1][1].getText().equals("O"))&&(Tablero.tablero[2][1].getText().equals("O"))&&(Tablero.tablero[3][1].getText().equals("O")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+       }
+          else if((Tablero.tablero[2][1].getText().equals("O"))&&(Tablero.tablero[2][2].getText().equals("O"))&&(Tablero.tablero[2][3].getText().equals("O")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+       }
+          else if((Tablero.tablero[3][1].getText().equals("O"))&&(Tablero.tablero[3][2].getText().equals("O"))&&(Tablero.tablero[3][3].getText().equals("O")))
        {
                               JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
        }
