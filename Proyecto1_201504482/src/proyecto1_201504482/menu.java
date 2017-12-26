@@ -307,7 +307,7 @@ public class menu extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Llene todos los campos y elija su orden correctamente");
        }
        else{
-       tablero tab=new tablero();
+       tablero_frame tab=new tablero_frame();
        tab.show();
        this.hide();
        }

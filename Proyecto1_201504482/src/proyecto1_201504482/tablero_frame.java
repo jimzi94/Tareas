@@ -15,35 +15,31 @@ import javax.swing.JButton;
  *
  * @author Jimbo
  */
-public class tablero extends javax.swing.JFrame {
+public class tablero_frame extends javax.swing.JFrame {
 
     /**
      * Creates new form tablero
      */
-  
-   
-static JButton tablero[][];
-static int tamaño;
-Thread pr=new proceso();
- public tablero() {
-     
+    static JButton tablero[][];
+    static int tamaño;
+    Thread pr = new proceso();
+
+    public tablero_frame() {
+
         initComponents();
-         ImageIcon vidas_=new ImageIcon("vidas.png");
-         ImageIcon vidas = new ImageIcon(vidas_.getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_DEFAULT));
-         jButton3.setIcon(vidas);
-         jButton4.setIcon(vidas);
-         jButton5.setIcon(vidas);
-         jButton6.setIcon(vidas);
-         jButton7.setIcon(vidas);
-         jButton8.setIcon(vidas);
-         jButton9.setIcon(vidas);
-         jButton10.setIcon(vidas);
-         jButton11.setIcon(vidas);
-         jButton12.setIcon(vidas);
-   
-         
-         
-       
+        ImageIcon vidas_ = new ImageIcon("vidas.png");
+        ImageIcon vidas = new ImageIcon(vidas_.getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_DEFAULT));
+        jButton3.setIcon(vidas);
+        jButton4.setIcon(vidas);
+        jButton5.setIcon(vidas);
+        jButton6.setIcon(vidas);
+        jButton7.setIcon(vidas);
+        jButton8.setIcon(vidas);
+        jButton9.setIcon(vidas);
+        jButton10.setIcon(vidas);
+        jButton11.setIcon(vidas);
+        jButton12.setIcon(vidas);
+
     }
 
     /**
@@ -86,7 +82,7 @@ Thread pr=new proceso();
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "12", "13" }));
@@ -118,6 +114,12 @@ Thread pr=new proceso();
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(27, 27, 27))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel12))
@@ -132,13 +134,7 @@ Thread pr=new proceso();
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(27, 27, 27)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,66 +171,104 @@ Thread pr=new proceso();
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(38, 38, 38)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)
+                                .addGap(38, 38, 38)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 386, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         matriz_tablero();
-           
-            this.hide();
-            this.show();
-            jComboBox1.setEnabled(false);
-            jButton2.setEnabled(true);
-            jButton1.setEnabled(false);
-           
-            pr.start();
-            
- 
-    }//GEN-LAST:event_jButton1ActionPerformed
+        matriz_tablero();
 
+        this.hide();
+        this.show();
+        jComboBox1.setEnabled(false);
+        jButton2.setEnabled(true);
+        jButton1.setEnabled(false);
+
+        pr.start();
+        bombas();
+        vidas();
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void bombas() {
+        Random rn = new Random();
+        Random rn2 = new Random();
+        ImageIcon bomba_ = new ImageIcon("bomba.png");
+        ImageIcon bomba = new ImageIcon(bomba_.getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_DEFAULT));
+        double tam_bomb = Integer.parseInt(jComboBox1.getSelectedItem() + "") * Integer.parseInt(jComboBox1.getSelectedItem() + "");
+        tam_bomb = tam_bomb * 0.10;
+        int tam_tab = Integer.parseInt(jComboBox1.getSelectedItem() + "");
+     
+        for (int bomb = 0; bomb <= tam_bomb; bomb++) {
+
+            int bomba_x = rn.nextInt(tam_tab - 1) + 1;
+            int bomba_y = rn2.nextInt(tam_tab - 1) + 1;
+
+            tablero[bomba_x][bomba_y].setIcon(bomba);
+        }
+        
+
+    }
+     public void vidas() {
+        Random rn = new Random();
+        Random rn2 = new Random();
+        ImageIcon vida_ = new ImageIcon("vidas.png");
+        ImageIcon vida = new ImageIcon(vida_.getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_DEFAULT));
+        double tam_bomb = Integer.parseInt(jComboBox1.getSelectedItem() + "") * Integer.parseInt(jComboBox1.getSelectedItem() + "");
+        tam_bomb = tam_bomb * 0.05;
+        int tam_tab = Integer.parseInt(jComboBox1.getSelectedItem() + "");
+        System.out.println(tam_bomb);
+        for (int bomb = 0; bomb <= tam_bomb; bomb++) {
+
+            int bomba_x = rn.nextInt(tam_tab - 1) + 1;
+            int bomba_y = rn2.nextInt(tam_tab - 1) + 1;
+
+            tablero[bomba_x][bomba_y].setIcon(vida);
+        }
+     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Random rn = new Random();
-int randomNum =  rn.nextInt(6) + 1;
-jLabel1.setText(randomNum+"");
+        Random rn = new Random();
+        int randomNum = rn.nextInt(6) + 1;
+        jLabel1.setText(randomNum + "");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -254,35 +288,37 @@ jLabel1.setText(randomNum+"");
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablero_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablero_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablero_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablero_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tablero().setVisible(true);
+                new tablero_frame().setVisible(true);
             }
         });
-       
+
     }
-     public static void matriz_tablero(){
-         tamaño=Integer.parseInt(jComboBox1.getSelectedItem()+"");
-         tablero=new JButton[tamaño][tamaño];
-    for(int fila=1;fila<tamaño;fila++){
-    for(int columna=1;columna<tamaño;columna++){
-        tablero[fila][columna]=new boton(48*columna,48*fila,48,48);
-        tablero[fila][columna].setName(fila+","+columna);
-        jPanel1.add(tablero[fila][columna]);
-    }
-    }
-     
+
+    public static void matriz_tablero() {
+        tamaño = Integer.parseInt(jComboBox1.getSelectedItem() + "");
+        tablero = new JButton[tamaño][tamaño];
+        for (int fila = 1; fila < tamaño; fila++) {
+            for (int columna = 1; columna < tamaño; columna++) {
+                tablero[fila][columna] = new boton(48 * columna, 48 * fila, 48, 48);
+                tablero[fila][columna].setName(fila + "," + columna);
+                jPanel1.add(tablero[fila][columna]);
+            }
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

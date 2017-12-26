@@ -22,9 +22,9 @@ public class proceso extends Thread{
     }
     @Override
     public void run(){
-        tablero.jLabel3.setText(minutos+"");
+        tablero_frame.jLabel3.setText(minutos+"");
      for(int a=0;a<60;a++){
-        tablero.jLabel2.setText(a+"");
+        tablero_frame.jLabel2.setText(a+"");
          try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
@@ -32,7 +32,7 @@ public class proceso extends Thread{
         }
          if(a==59){
          minutos++;
-             tablero.jLabel3.setText(minutos+"");
+             tablero_frame.jLabel3.setText(minutos+"");
          a=0;
          }
          if(minutos==5)
