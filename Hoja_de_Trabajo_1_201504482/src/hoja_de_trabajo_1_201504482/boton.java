@@ -153,5 +153,45 @@ public class boton extends JButton implements ActionListener {
                 Logger.getLogger(boton.class.getName()).log(Level.SEVERE, null, ex);
             }
        }
+       ganar_en_diagonal();
+    }
+    public void ganar_en_diagonal(){
+    if((Tablero.tablero[1][1].getText().equals("X"))&&(Tablero.tablero[2][2].getText().equals("X"))&&(Tablero.tablero[3][3].getText().equals("X")))
+       {
+                       JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                Tablero.guardar(Tablero.jLabel1.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(boton.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+       }
+     else if((Tablero.tablero[1][3].getText().equals("X"))&&(Tablero.tablero[2][2].getText().equals("X"))&&(Tablero.tablero[3][1].getText().equals("X")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 1 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+                              try {
+                Tablero.guardar(Tablero.jLabel1.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(boton.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }
+    else if((Tablero.tablero[1][1].getText().equals("O"))&&(Tablero.tablero[2][2].getText().equals("O"))&&(Tablero.tablero[3][3].getText().equals("O")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 2 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+                              try {
+                Tablero.guardar(Tablero.jLabel2.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(boton.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }
+    else if((Tablero.tablero[1][3].getText().equals("O"))&&(Tablero.tablero[2][2].getText().equals("O"))&&(Tablero.tablero[3][1].getText().equals("O")))
+       {
+                              JOptionPane.showMessageDialog(null, "El jugador 2 ha ganado","Informacion", JOptionPane.INFORMATION_MESSAGE);
+                              try {
+                Tablero.guardar(Tablero.jLabel2.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(boton.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       }
     }
 }
