@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -780,6 +781,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[0][1] = posiciones_personajes[0][1];
                         tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -812,6 +814,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[1][1] = posiciones_personajes[0][1];
                         tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -843,6 +846,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[1][1] = posiciones_personajes[1][1];
                         tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -887,6 +891,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton13.setEnabled(false);
                         posiciones_personajes[3][1] = posiciones_personajes[3][1];
                         tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -919,6 +924,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton13.setEnabled(false);
                         posiciones_personajes[4][1] = posiciones_personajes[4][1];
                         tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -928,6 +934,13 @@ public class tablero_frame extends javax.swing.JFrame {
                     tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1] - 1].setIcon(princesa2);
                     posiciones_personajes[5][1] = posiciones_personajes[5][1] - 1;
                     jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                     if(jLabel10.getText().equals("0")){
+                jLabel8.setText("Jugador 1");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                }
                 } catch (Exception NullPointerException) {
 
                     if (jButton4.isEnabled()) {
@@ -950,18 +963,13 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[5][1] = posiciones_personajes[5][1];
                         tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
 
             }
-            if(jLabel10.getText().equals("0")){
-                jLabel8.setText("Jugador 1");
-                jButton13.setEnabled(false);
-                jButton14.setEnabled(false);
-                jButton15.setEnabled(false);
-                jButton16.setEnabled(false);
-                }
+           
          }
             
 
@@ -1000,6 +1008,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[0][1] = posiciones_personajes[0][1];
                         tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -1033,6 +1042,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[1][1] = posiciones_personajes[1][1];
                         tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -1064,18 +1074,13 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[1][1] = posiciones_personajes[1][1];
                         tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
                 
             }
-               if(jLabel10.getText().equals("0")){
-                jLabel8.setText("Jugador 2");
-                jButton13.setEnabled(false);
-                jButton14.setEnabled(false);
-                jButton15.setEnabled(false);
-                jButton16.setEnabled(false);
-                }
+              
         } else if (jLabel8.getText().equals("Jugador 2")) {
             if (menu.orden_jugador_2[contador_orden].equals("mago")) {
                 try {
@@ -1106,6 +1111,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton13.setEnabled(false);
                         posiciones_personajes[3][1] = posiciones_personajes[3][1];
                         tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -1138,6 +1144,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton13.setEnabled(false);
                         posiciones_personajes[4][1] = posiciones_personajes[4][1];
                         tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -1166,6 +1173,7 @@ public class tablero_frame extends javax.swing.JFrame {
                     } else if (jButton7.isEnabled()) {
                         jButton7.setEnabled(false);
                         tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -1210,6 +1218,7 @@ public class tablero_frame extends javax.swing.JFrame {
                     } else if (jButton7.isEnabled()) {
                         jButton7.setEnabled(false);
                         tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -1238,6 +1247,7 @@ public class tablero_frame extends javax.swing.JFrame {
                     } else if (jButton7.isEnabled()) {
                         jButton7.setEnabled(false);
                         tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -1264,6 +1274,7 @@ public class tablero_frame extends javax.swing.JFrame {
                     } else if (jButton7.isEnabled()) {
                         jButton7.setEnabled(false);
                         tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                         JOptionPane.showMessageDialog(null, "jugador 1 ha perdido");
                     }
 
                 }
@@ -1306,6 +1317,7 @@ public class tablero_frame extends javax.swing.JFrame {
                     } else if (jButton13.isEnabled()) {
                         jButton13.setEnabled(false);
                         tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -1338,6 +1350,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton13.setEnabled(false);
                         posiciones_personajes[4][1] = posiciones_personajes[4][1];
                         tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -1369,6 +1382,7 @@ public class tablero_frame extends javax.swing.JFrame {
                         jButton7.setEnabled(false);
                         posiciones_personajes[5][1] = posiciones_personajes[5][1];
                         tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                         JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                     }
 
                 }
@@ -1401,7 +1415,7 @@ if (jButton4.isEnabled()) {
                      
                     } else if (jButton7.isEnabled()) {
                         jButton7.setEnabled(false);
-                      
+                         JOptionPane.showMessageDialog(null, "Jugador 1 ha perdido");
                     }
 }
     /**
@@ -1501,7 +1515,7 @@ if (jButton9.isEnabled()) {
                         
                     } else if (jButton13.isEnabled()) {
                         jButton13.setEnabled(false);
-                       
+                          JOptionPane.showMessageDialog(null, "jugador 2 ha perdido");
                        
                     }
 }
