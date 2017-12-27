@@ -21,11 +21,24 @@ public class tablero_frame extends javax.swing.JFrame {
      * Creates new form tablero
      */
     static JButton tablero[][];
+    int contador_orden=0;
     static int tamaño;
     Thread pr = new proceso();
-
+    int posiciones_personajes[][]=new int[6][3];
+    ImageIcon mago1_ = new ImageIcon("mago1.png");
+        ImageIcon mago1 = new ImageIcon(mago1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+        ImageIcon caballero1_ = new ImageIcon("caballero1.png");
+        ImageIcon caballero1 = new ImageIcon(caballero1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+        ImageIcon princesa1_ = new ImageIcon("princesa1.png");
+        ImageIcon princesa1 = new ImageIcon(princesa1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+        ImageIcon mago2_ = new ImageIcon("mago2.png");
+        ImageIcon mago2 = new ImageIcon(mago2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+        ImageIcon caballero2_ = new ImageIcon("caballero2.png");
+        ImageIcon caballero2 = new ImageIcon(caballero2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+        ImageIcon princesa2_ = new ImageIcon("princesa2.png");
+        ImageIcon princesa2 = new ImageIcon(princesa2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
     public tablero_frame() {
-
+        
         initComponents();
         ImageIcon vidas_ = new ImageIcon("vidas.png");
         ImageIcon vidas = new ImageIcon(vidas_.getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_DEFAULT));
@@ -39,7 +52,9 @@ public class tablero_frame extends javax.swing.JFrame {
         jButton10.setIcon(vidas);
         jButton11.setIcon(vidas);
         jButton12.setIcon(vidas);
-
+        jLabel4.setText(menu.jTextField1.getText());
+        jLabel5.setText(menu.jTextField2.getText());
+        
     }
 
     /**
@@ -71,6 +86,15 @@ public class tablero_frame extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +132,52 @@ public class tablero_frame extends javax.swing.JFrame {
 
         jLabel5.setText("Jugador 2");
 
+        jLabel6.setText("Tiempo");
+
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton13.setText("^");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton14.setText("v");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton15.setText("<");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton16.setText(">");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Turno:");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Jugador 2");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Movimientos");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,55 +186,86 @@ public class tablero_frame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(27, 27, 27))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel12))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel12))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel4)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel10))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel8)))
+                                .addGap(63, 63, 63))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,11 +283,7 @@ public class tablero_frame extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(54, 54, 54)
                                 .addComponent(jLabel4)
@@ -206,7 +303,36 @@ public class tablero_frame extends javax.swing.JFrame {
                                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 386, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(14, 14, 14)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(167, 167, 167))
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -215,19 +341,16 @@ public class tablero_frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        matriz_tablero();
-
+        matriz_tablero();    
         this.hide();
         this.show();
         jComboBox1.setEnabled(false);
         jButton2.setEnabled(true);
         jButton1.setEnabled(false);
-
         pr.start();
         bombas();
         vidas();
-
-
+        personajes();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void bombas() {
         Random rn = new Random();
@@ -237,18 +360,18 @@ public class tablero_frame extends javax.swing.JFrame {
         double tam_bomb = Integer.parseInt(jComboBox1.getSelectedItem() + "") * Integer.parseInt(jComboBox1.getSelectedItem() + "");
         tam_bomb = tam_bomb * 0.10;
         int tam_tab = Integer.parseInt(jComboBox1.getSelectedItem() + "");
-     
+        
         for (int bomb = 0; bomb <= tam_bomb; bomb++) {
-
+            
             int bomba_x = rn.nextInt(tam_tab - 1) + 1;
             int bomba_y = rn2.nextInt(tam_tab - 1) + 1;
-
+            
             tablero[bomba_x][bomba_y].setIcon(bomba);
         }
         
-
     }
-     public void vidas() {
+
+    public void vidas() {
         Random rn = new Random();
         Random rn2 = new Random();
         ImageIcon vida_ = new ImageIcon("vidas.png");
@@ -258,18 +381,1092 @@ public class tablero_frame extends javax.swing.JFrame {
         int tam_tab = Integer.parseInt(jComboBox1.getSelectedItem() + "");
         System.out.println(tam_bomb);
         for (int bomb = 0; bomb <= tam_bomb; bomb++) {
-
             int bomba_x = rn.nextInt(tam_tab - 1) + 1;
             int bomba_y = rn2.nextInt(tam_tab - 1) + 1;
-
             tablero[bomba_x][bomba_y].setIcon(vida);
         }
-     }
+    }
+
+    public void personajes() {
+        Random rn = new Random();
+        Random rn2 = new Random();
+        int posx, posy;
+        int tam_tab = Integer.parseInt(jComboBox1.getSelectedItem() + "");
+        
+        posiciones_personajes[0][0]=rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[0][1]=rn.nextInt(tam_tab - 1) + 1;
+        
+        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+        
+       posiciones_personajes[1][0]=rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[1][1]=rn.nextInt(tam_tab - 1) + 1;
+        
+        tablero[ posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+         posiciones_personajes[2][0]=rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[2][1]=rn.nextInt(tam_tab - 1) + 1;
+        tablero[posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+         posiciones_personajes[3][0]=rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[3][1]=rn.nextInt(tam_tab - 1) + 1;
+        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+         posiciones_personajes[4][0]=rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[4][1]=rn.nextInt(tam_tab - 1) + 1;
+        tablero[posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          posiciones_personajes[5][0]=rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[5][1]=rn.nextInt(tam_tab - 1) + 1;
+        tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+        
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Random rn = new Random();
         int randomNum = rn.nextInt(6) + 1;
         jLabel1.setText(randomNum + "");
+        jLabel10.setText(randomNum + "");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+ if(jLabel8.getText().equals("Jugador 1")){
+        if(menu.orden_jugador_1[contador_orden].equals("mago")){
+      try{
+    tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]+1].setIcon(mago1);
+posiciones_personajes[0][1]=posiciones_personajes[0][1]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
+     try{
+tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]+1].setIcon(caballero1);
+posiciones_personajes[1][1]=posiciones_personajes[1][1]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+      
+      }
+
+
+}
+else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
+ try{
+tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]+1].setIcon(princesa1);
+posiciones_personajes[2][1]=posiciones_personajes[2][1]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+      
+     }}
+ }
+ 
+   else if(jLabel8.getText().equals("Jugador 2")){
+       if(menu.orden_jugador_2[contador_orden].equals("mago")){
+      try{
+    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]+1].setIcon(mago2);
+posiciones_personajes[3][1]=posiciones_personajes[3][1]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
+      try{
+tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]+1].setIcon(caballero2);
+posiciones_personajes[4][1]=posiciones_personajes[4][1]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+ catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
+try{
+tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
+tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]+1].setIcon(princesa2);
+posiciones_personajes[5][1]=posiciones_personajes[5][1]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+      
+     }
+
+}}
+ 
+ 
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+      if(jLabel8.getText().equals("Jugador 1")){
+        
+        if(menu.orden_jugador_1[contador_orden].equals("mago")){
+      try{
+    tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]-1].setIcon(mago1);
+posiciones_personajes[0][1]=posiciones_personajes[0][1]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
+      try{
+tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]-1].setIcon(caballero1);
+posiciones_personajes[1][1]=posiciones_personajes[1][1]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+ catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[0][1]].setIcon(caballero1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
+try{
+tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
+tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]-1].setIcon(princesa1);
+posiciones_personajes[2][1]=posiciones_personajes[2][1]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+      
+     }
+
+}}
+      else if(jLabel8.getText().equals("Jugador 2")){
+       if(menu.orden_jugador_2[contador_orden].equals("mago")){
+      try{
+    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]-1].setIcon(mago2);
+posiciones_personajes[3][1]=posiciones_personajes[3][1]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_2[contador_orden].equals("caballero")){
+      try{
+tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]-1].setIcon(caballero2);
+posiciones_personajes[4][1]=posiciones_personajes[4][1]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+ catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_2[contador_orden].equals("princesa")){
+try{
+tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
+tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]-1].setIcon(princesa2);
+posiciones_personajes[5][1]=posiciones_personajes[5][1]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+      
+     }
+
+}
+      
+      }
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    if(jLabel8.getText().equals("Jugador 1")){
+        if(menu.orden_jugador_1[contador_orden].equals("mago")){
+      try{
+   tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[0][0]-1][ posiciones_personajes[0][1]].setIcon(mago1);
+posiciones_personajes[0][0]=posiciones_personajes[0][0]-1;
+
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
+    try{
+tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[1][0]-1][ posiciones_personajes[1][1]].setIcon(caballero1);
+posiciones_personajes[1][0]=posiciones_personajes[1][0]-1;
+
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+    }
+    catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
+try{
+tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
+tablero[ posiciones_personajes[2][0]-1][ posiciones_personajes[2][1]].setIcon(princesa1);
+posiciones_personajes[2][0]=posiciones_personajes[2][0]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+      
+     }
+}}
+    
+    
+    
+    
+    
+     else if(jLabel8.getText().equals("Jugador 2")){
+       if(menu.orden_jugador_2[contador_orden].equals("mago")){
+      try{
+    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[3][0]-1][ posiciones_personajes[3][1]].setIcon(mago2);
+posiciones_personajes[3][0]=posiciones_personajes[3][0]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_2[contador_orden].equals("caballero")){
+      try{
+tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[4][0]-1][ posiciones_personajes[4][1]].setIcon(caballero2);
+posiciones_personajes[4][0]=posiciones_personajes[4][0]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+ catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_2[contador_orden].equals("princesa")){
+try{
+tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
+tablero[ posiciones_personajes[5][0]-1][ posiciones_personajes[5][1]].setIcon(princesa2);
+posiciones_personajes[5][0]=posiciones_personajes[5][0]-1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+      
+     }
+}}
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+         
+        if(jLabel8.getText().equals("Jugador 1")){
+        if(menu.orden_jugador_1[contador_orden].equals("mago")){
+      try{
+    tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[0][0]+1][ posiciones_personajes[0][1]].setIcon(mago1);
+posiciones_personajes[0][0]=posiciones_personajes[0][0]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+           if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(mago1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
+          }
+      
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
+    try{
+tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[1][0]+1][ posiciones_personajes[1][1]].setIcon(caballero1);
+posiciones_personajes[1][0]=posiciones_personajes[1][0]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+    }
+    catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[0][1]=posiciones_personajes[0][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
+try{
+tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
+tablero[ posiciones_personajes[2][0]+1][ posiciones_personajes[2][1]].setIcon(princesa1);
+posiciones_personajes[2][0]=posiciones_personajes[2][0]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[2][1]=posiciones_personajes[2][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[1][1];
+              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
+          }
+      
+     }
+}}
+        
+        
+        
+          else if(jLabel8.getText().equals("Jugador 2")){
+       if(menu.orden_jugador_2[contador_orden].equals("mago")){
+      try{
+    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[3][0]+1][ posiciones_personajes[3][1]].setIcon(mago2);
+posiciones_personajes[3][0]=posiciones_personajes[3][0]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+      catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[3][1]=posiciones_personajes[3][1];
+              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_2[contador_orden].equals("caballero")){
+      try{
+tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
+  
+tablero[ posiciones_personajes[4][0]+1][ posiciones_personajes[4][1]].setIcon(caballero2);
+posiciones_personajes[4][0]=posiciones_personajes[4][0]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+      }
+ catch(Exception NullPointerException){
+    
+          if(jButton9.isEnabled()){
+              jButton9.setEnabled(false);
+              posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+                      }
+          else if(jButton10.isEnabled())
+          {
+           jButton10.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton11.isEnabled())
+          {
+           jButton11.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton12.isEnabled())
+          {
+           jButton12.setEnabled(false);
+            posiciones_personajes[1][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+          else if(jButton13.isEnabled())
+          {
+           jButton13.setEnabled(false);
+            posiciones_personajes[4][1]=posiciones_personajes[4][1];
+              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
+          }
+      
+      }
+}
+else if(menu.orden_jugador_2[contador_orden].equals("princesa")){
+try{
+tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
+tablero[ posiciones_personajes[5][0]+1][ posiciones_personajes[5][1]].setIcon(princesa2);
+posiciones_personajes[5][0]=posiciones_personajes[5][0]+1;
+jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
+     }
+     catch(Exception NullPointerException){
+    
+          if(jButton4.isEnabled()){
+              jButton4.setEnabled(false);
+              posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+                      }
+          else if(jButton4.isEnabled())
+          {
+           jButton4.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton5.isEnabled())
+          {
+           jButton5.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton6.isEnabled())
+          {
+           jButton6.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+          else if(jButton7.isEnabled())
+          {
+           jButton7.setEnabled(false);
+            posiciones_personajes[5][1]=posiciones_personajes[5][1];
+              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
+          }
+      
+     }
+}}
+        
+    }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,9 +1502,9 @@ public class tablero_frame extends javax.swing.JFrame {
                 new tablero_frame().setVisible(true);
             }
         });
-
+        
     }
-
+    
     public static void matriz_tablero() {
         tamaño = Integer.parseInt(jComboBox1.getSelectedItem() + "");
         tablero = new JButton[tamaño][tamaño];
@@ -318,7 +1515,7 @@ public class tablero_frame extends javax.swing.JFrame {
                 jPanel1.add(tablero[fila][columna]);
             }
         }
-
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -326,6 +1523,10 @@ public class tablero_frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -336,11 +1537,16 @@ public class tablero_frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     public static javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private static javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
