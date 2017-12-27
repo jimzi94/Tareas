@@ -21,24 +21,25 @@ public class tablero_frame extends javax.swing.JFrame {
      * Creates new form tablero
      */
     static JButton tablero[][];
-    int contador_orden=0;
+    int contador_orden = 0;
     static int tamaño;
     Thread pr = new proceso();
-    int posiciones_personajes[][]=new int[6][3];
+    int posiciones_personajes[][] = new int[6][3];
     ImageIcon mago1_ = new ImageIcon("mago1.png");
-        ImageIcon mago1 = new ImageIcon(mago1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
-        ImageIcon caballero1_ = new ImageIcon("caballero1.png");
-        ImageIcon caballero1 = new ImageIcon(caballero1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
-        ImageIcon princesa1_ = new ImageIcon("princesa1.png");
-        ImageIcon princesa1 = new ImageIcon(princesa1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
-        ImageIcon mago2_ = new ImageIcon("mago2.png");
-        ImageIcon mago2 = new ImageIcon(mago2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
-        ImageIcon caballero2_ = new ImageIcon("caballero2.png");
-        ImageIcon caballero2 = new ImageIcon(caballero2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
-        ImageIcon princesa2_ = new ImageIcon("princesa2.png");
-        ImageIcon princesa2 = new ImageIcon(princesa2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+    ImageIcon mago1 = new ImageIcon(mago1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+    ImageIcon caballero1_ = new ImageIcon("caballero1.png");
+    ImageIcon caballero1 = new ImageIcon(caballero1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+    ImageIcon princesa1_ = new ImageIcon("princesa1.png");
+    ImageIcon princesa1 = new ImageIcon(princesa1_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+    ImageIcon mago2_ = new ImageIcon("mago2.png");
+    ImageIcon mago2 = new ImageIcon(mago2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+    ImageIcon caballero2_ = new ImageIcon("caballero2.png");
+    ImageIcon caballero2 = new ImageIcon(caballero2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+    ImageIcon princesa2_ = new ImageIcon("princesa2.png");
+    ImageIcon princesa2 = new ImageIcon(princesa2_.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_DEFAULT));
+
     public tablero_frame() {
-        
+
         initComponents();
         ImageIcon vidas_ = new ImageIcon("vidas.png");
         ImageIcon vidas = new ImageIcon(vidas_.getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_DEFAULT));
@@ -54,7 +55,7 @@ public class tablero_frame extends javax.swing.JFrame {
         jButton12.setIcon(vidas);
         jLabel4.setText(menu.jTextField1.getText());
         jLabel5.setText(menu.jTextField2.getText());
-        
+
     }
 
     /**
@@ -170,7 +171,7 @@ public class tablero_frame extends javax.swing.JFrame {
         jLabel7.setText("Turno:");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Jugador 2");
+        jLabel8.setText("Jugador 1");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Movimientos");
@@ -341,7 +342,7 @@ public class tablero_frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        matriz_tablero();    
+        matriz_tablero();
         this.hide();
         this.show();
         jComboBox1.setEnabled(false);
@@ -360,15 +361,15 @@ public class tablero_frame extends javax.swing.JFrame {
         double tam_bomb = Integer.parseInt(jComboBox1.getSelectedItem() + "") * Integer.parseInt(jComboBox1.getSelectedItem() + "");
         tam_bomb = tam_bomb * 0.10;
         int tam_tab = Integer.parseInt(jComboBox1.getSelectedItem() + "");
-        
+
         for (int bomb = 0; bomb <= tam_bomb; bomb++) {
-            
+
             int bomba_x = rn.nextInt(tam_tab - 1) + 1;
             int bomba_y = rn2.nextInt(tam_tab - 1) + 1;
-            
+
             tablero[bomba_x][bomba_y].setIcon(bomba);
         }
-        
+
     }
 
     public void vidas() {
@@ -392,1080 +393,896 @@ public class tablero_frame extends javax.swing.JFrame {
         Random rn2 = new Random();
         int posx, posy;
         int tam_tab = Integer.parseInt(jComboBox1.getSelectedItem() + "");
-        
-        posiciones_personajes[0][0]=rn.nextInt(tam_tab - 1) + 1;
-        posiciones_personajes[0][1]=rn.nextInt(tam_tab - 1) + 1;
-        
+
+        posiciones_personajes[0][0] = rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[0][1] = rn.nextInt(tam_tab - 1) + 1;
+
         tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
-        
-       posiciones_personajes[1][0]=rn.nextInt(tam_tab - 1) + 1;
-        posiciones_personajes[1][1]=rn.nextInt(tam_tab - 1) + 1;
-        
-        tablero[ posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
-         posiciones_personajes[2][0]=rn.nextInt(tam_tab - 1) + 1;
-        posiciones_personajes[2][1]=rn.nextInt(tam_tab - 1) + 1;
-        tablero[posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-         posiciones_personajes[3][0]=rn.nextInt(tam_tab - 1) + 1;
-        posiciones_personajes[3][1]=rn.nextInt(tam_tab - 1) + 1;
+
+        posiciones_personajes[1][0] = rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[1][1] = rn.nextInt(tam_tab - 1) + 1;
+
+        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+        posiciones_personajes[2][0] = rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[2][1] = rn.nextInt(tam_tab - 1) + 1;
+        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+        posiciones_personajes[3][0] = rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[3][1] = rn.nextInt(tam_tab - 1) + 1;
         tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
-         posiciones_personajes[4][0]=rn.nextInt(tam_tab - 1) + 1;
-        posiciones_personajes[4][1]=rn.nextInt(tam_tab - 1) + 1;
-        tablero[posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          posiciones_personajes[5][0]=rn.nextInt(tam_tab - 1) + 1;
-        posiciones_personajes[5][1]=rn.nextInt(tam_tab - 1) + 1;
-        tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-        
+        posiciones_personajes[4][0] = rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[4][1] = rn.nextInt(tam_tab - 1) + 1;
+        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+        posiciones_personajes[5][0] = rn.nextInt(tam_tab - 1) + 1;
+        posiciones_personajes[5][1] = rn.nextInt(tam_tab - 1) + 1;
+        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Random rn = new Random();
         int randomNum = rn.nextInt(6) + 1;
         jLabel1.setText(randomNum + "");
         jLabel10.setText(randomNum + "");
+       
+                jButton13.setEnabled(true);
+                jButton14.setEnabled(true);
+                jButton15.setEnabled(true);
+                jButton16.setEnabled(true);
+                
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
- if(jLabel8.getText().equals("Jugador 1")){
-        if(menu.orden_jugador_1[contador_orden].equals("mago")){
-      try{
-    tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]+1].setIcon(mago1);
-posiciones_personajes[0][1]=posiciones_personajes[0][1]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
-     try{
-tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]+1].setIcon(caballero1);
-posiciones_personajes[1][1]=posiciones_personajes[1][1]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-      
-      }
+        if (jLabel8.getText().equals("Jugador 1")) {
+            if (menu.orden_jugador_1[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(null);
 
+                    tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1] + 1].setIcon(mago1);
+                    posiciones_personajes[0][1] = posiciones_personajes[0][1] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
 
-}
-else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
- try{
-tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]+1].setIcon(princesa1);
-posiciones_personajes[2][1]=posiciones_personajes[2][1]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-      
-     }}
- }
- 
-   else if(jLabel8.getText().equals("Jugador 2")){
-       if(menu.orden_jugador_2[contador_orden].equals("mago")){
-      try{
-    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]+1].setIcon(mago2);
-posiciones_personajes[3][1]=posiciones_personajes[3][1]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
-      try{
-tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]+1].setIcon(caballero2);
-posiciones_personajes[4][1]=posiciones_personajes[4][1]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
- catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
-try{
-tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
-tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]+1].setIcon(princesa2);
-posiciones_personajes[5][1]=posiciones_personajes[5][1]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-      
-     }
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    }
 
-}}
- 
- 
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1] + 1].setIcon(caballero1);
+                    posiciones_personajes[1][1] = posiciones_personajes[1][1] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    }
+
+                }
+
+            } else if (menu.orden_jugador_1[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1] + 1].setIcon(princesa1);
+                    posiciones_personajes[2][1] = posiciones_personajes[2][1] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    }
+
+                }
+                  
+            }
+             if(jLabel10.equals("0")){
+                jLabel8.setText("Jugador 2");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                }
+        } else if (jLabel8.getText().equals("Jugador 2")) {
+            if (menu.orden_jugador_2[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1] + 1].setIcon(mago2);
+                    posiciones_personajes[3][1] = posiciones_personajes[3][1] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1] + 1].setIcon(caballero2);
+                    posiciones_personajes[4][1] = posiciones_personajes[4][1] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(null);
+                    tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1] + 1].setIcon(princesa2);
+                    posiciones_personajes[5][1] = posiciones_personajes[5][1] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    }
+
+                }
+  
+            }
+        }
+ if(jLabel10.equals("0")){
+                jLabel8.setText("Jugador 1");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                contador_orden++;
+                }
+
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-      if(jLabel8.getText().equals("Jugador 1")){
+        if (jLabel8.getText().equals("Jugador 1")) {
+
+            if (menu.orden_jugador_1[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1] - 1].setIcon(mago1);
+                    posiciones_personajes[0][1] = posiciones_personajes[0][1] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1] - 1].setIcon(caballero1);
+                    posiciones_personajes[1][1] = posiciones_personajes[1][1] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[0][1]].setIcon(caballero1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(null);
+                    tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1] - 1].setIcon(princesa1);
+                    posiciones_personajes[2][1] = posiciones_personajes[2][1] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    }
+
+                }
+   
+            }
+        if(jLabel10.equals("0")){
+                jLabel8.setText("Jugador 2");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                }
+        }
         
-        if(menu.orden_jugador_1[contador_orden].equals("mago")){
-      try{
-    tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]-1].setIcon(mago1);
-posiciones_personajes[0][1]=posiciones_personajes[0][1]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
-      try{
-tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]-1].setIcon(caballero1);
-posiciones_personajes[1][1]=posiciones_personajes[1][1]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
- catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[0][1]].setIcon(caballero1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
-try{
-tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
-tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]-1].setIcon(princesa1);
-posiciones_personajes[2][1]=posiciones_personajes[2][1]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-      
-     }
+         else if (jLabel8.getText().equals("Jugador 2")) {
+            if (menu.orden_jugador_2[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(null);
 
-}}
-      else if(jLabel8.getText().equals("Jugador 2")){
-       if(menu.orden_jugador_2[contador_orden].equals("mago")){
-      try{
-    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]-1].setIcon(mago2);
-posiciones_personajes[3][1]=posiciones_personajes[3][1]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_2[contador_orden].equals("caballero")){
-      try{
-tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]-1].setIcon(caballero2);
-posiciones_personajes[4][1]=posiciones_personajes[4][1]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
- catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_2[contador_orden].equals("princesa")){
-try{
-tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
-tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]-1].setIcon(princesa2);
-posiciones_personajes[5][1]=posiciones_personajes[5][1]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-      
-     }
+                    tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1] - 1].setIcon(mago2);
+                    posiciones_personajes[3][1] = posiciones_personajes[3][1] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
 
-}
-      
-      }
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_2[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1] - 1].setIcon(caballero2);
+                    posiciones_personajes[4][1] = posiciones_personajes[4][1] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_2[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(null);
+                    tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1] - 1].setIcon(princesa2);
+                    posiciones_personajes[5][1] = posiciones_personajes[5][1] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    }
+
+                }
+
+            }
+            if(jLabel10.getText().equals("0")){
+                jLabel8.setText("Jugador 1");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                }
+         }
+            
+
+        
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-    if(jLabel8.getText().equals("Jugador 1")){
-        if(menu.orden_jugador_1[contador_orden].equals("mago")){
-      try{
-   tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[0][0]-1][ posiciones_personajes[0][1]].setIcon(mago1);
-posiciones_personajes[0][0]=posiciones_personajes[0][0]-1;
+        if (jLabel8.getText().equals("Jugador 1")) {
+            if (menu.orden_jugador_1[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(null);
 
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
-    try{
-tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[1][0]-1][ posiciones_personajes[1][1]].setIcon(caballero1);
-posiciones_personajes[1][0]=posiciones_personajes[1][0]-1;
+                    tablero[posiciones_personajes[0][0] - 1][posiciones_personajes[0][1]].setIcon(mago1);
+                    posiciones_personajes[0][0] = posiciones_personajes[0][0] - 1;
 
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-    }
-    catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
-try{
-tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
-tablero[ posiciones_personajes[2][0]-1][ posiciones_personajes[2][1]].setIcon(princesa1);
-posiciones_personajes[2][0]=posiciones_personajes[2][0]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-      
-     }
-}}
-    
-    
-    
-    
-    
-     else if(jLabel8.getText().equals("Jugador 2")){
-       if(menu.orden_jugador_2[contador_orden].equals("mago")){
-      try{
-    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[3][0]-1][ posiciones_personajes[3][1]].setIcon(mago2);
-posiciones_personajes[3][0]=posiciones_personajes[3][0]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_2[contador_orden].equals("caballero")){
-      try{
-tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[4][0]-1][ posiciones_personajes[4][1]].setIcon(caballero2);
-posiciones_personajes[4][0]=posiciones_personajes[4][0]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
- catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_2[contador_orden].equals("princesa")){
-try{
-tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
-tablero[ posiciones_personajes[5][0]-1][ posiciones_personajes[5][1]].setIcon(princesa2);
-posiciones_personajes[5][0]=posiciones_personajes[5][0]-1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-      
-     }
-}}
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[1][0] - 1][posiciones_personajes[1][1]].setIcon(caballero1);
+                    posiciones_personajes[1][0] = posiciones_personajes[1][0] - 1;
+
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[0][1] = posiciones_personajes[0][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(null);
+                    tablero[posiciones_personajes[2][0] - 1][posiciones_personajes[2][1]].setIcon(princesa1);
+                    posiciones_personajes[2][0] = posiciones_personajes[2][0] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[2][1] = posiciones_personajes[2][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[1][1];
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    }
+
+                }
+                 if(jLabel10.getText().equals("0")){
+                jLabel8.setText("Jugador 2");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                }
+            }
+              
+        } else if (jLabel8.getText().equals("Jugador 2")) {
+            if (menu.orden_jugador_2[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[3][0] - 1][posiciones_personajes[3][1]].setIcon(mago2);
+                    posiciones_personajes[3][0] = posiciones_personajes[3][0] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        posiciones_personajes[3][1] = posiciones_personajes[3][1];
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_2[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[4][0] - 1][posiciones_personajes[4][1]].setIcon(caballero2);
+                    posiciones_personajes[4][0] = posiciones_personajes[4][0] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_2[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(null);
+                    tablero[posiciones_personajes[5][0] - 1][posiciones_personajes[5][1]].setIcon(princesa2);
+                    posiciones_personajes[5][0] = posiciones_personajes[5][0] - 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    }
+
+                }
+                
+            }
+               
+        }
+      if(jLabel10.getText().equals("0")){
+                jLabel8.setText("Jugador 1");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                contador_orden++;
+                }
+        
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-         
-        if(jLabel8.getText().equals("Jugador 1")){
-        if(menu.orden_jugador_1[contador_orden].equals("mago")){
-      try{
-    tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[0][0]+1][ posiciones_personajes[0][1]].setIcon(mago1);
-posiciones_personajes[0][0]=posiciones_personajes[0][0]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-           if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(mago1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[0][0]][ posiciones_personajes[0][1]].setIcon(mago1);
-          }
-      
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("caballero")){
-    try{
-tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[1][0]+1][ posiciones_personajes[1][1]].setIcon(caballero1);
-posiciones_personajes[1][0]=posiciones_personajes[1][0]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-    }
-    catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
+
+        if (jLabel8.getText().equals("Jugador 1")) {
+            if (menu.orden_jugador_1[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[0][0] + 1][posiciones_personajes[0][1]].setIcon(mago1);
+                    posiciones_personajes[0][0] = posiciones_personajes[0][0] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(mago1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        tablero[posiciones_personajes[0][0]][posiciones_personajes[0][1]].setIcon(mago1);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[1][0] + 1][posiciones_personajes[1][1]].setIcon(caballero1);
+                    posiciones_personajes[1][0] = posiciones_personajes[1][0] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        tablero[posiciones_personajes[1][0]][posiciones_personajes[1][1]].setIcon(caballero1);
+                    }
+
+                }
+            } else if (menu.orden_jugador_1[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(null);
+                    tablero[posiciones_personajes[2][0] + 1][posiciones_personajes[2][1]].setIcon(princesa1);
+                    posiciones_personajes[2][0] = posiciones_personajes[2][0] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        tablero[posiciones_personajes[2][0]][posiciones_personajes[2][1]].setIcon(princesa1);
+                    }
+
+                }
+               
+            }
             
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[0][1]=posiciones_personajes[0][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[1][0]][ posiciones_personajes[1][1]].setIcon(caballero1);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_1[contador_orden].equals("princesa")){
-try{
-tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(null);
-tablero[ posiciones_personajes[2][0]+1][ posiciones_personajes[2][1]].setIcon(princesa1);
-posiciones_personajes[2][0]=posiciones_personajes[2][0]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[2][1]=posiciones_personajes[2][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[1][1];
-              tablero[ posiciones_personajes[2][0]][ posiciones_personajes[2][1]].setIcon(princesa1);
-          }
-      
-     }
-}}
+           if(jLabel10.getText().equals("0")){
+                jLabel8.setText("Jugador 2");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                }
+        } 
         
-        
-        
-          else if(jLabel8.getText().equals("Jugador 2")){
-       if(menu.orden_jugador_2[contador_orden].equals("mago")){
-      try{
-    tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[3][0]+1][ posiciones_personajes[3][1]].setIcon(mago2);
-posiciones_personajes[3][0]=posiciones_personajes[3][0]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
-      catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][0]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[3][1]=posiciones_personajes[3][1];
-              tablero[ posiciones_personajes[3][3]][ posiciones_personajes[3][1]].setIcon(mago2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_2[contador_orden].equals("caballero")){
-      try{
-tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(null);
-  
-tablero[ posiciones_personajes[4][0]+1][ posiciones_personajes[4][1]].setIcon(caballero2);
-posiciones_personajes[4][0]=posiciones_personajes[4][0]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-      }
- catch(Exception NullPointerException){
-    
-          if(jButton9.isEnabled()){
-              jButton9.setEnabled(false);
-              posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-                      }
-          else if(jButton10.isEnabled())
-          {
-           jButton10.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton11.isEnabled())
-          {
-           jButton11.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton12.isEnabled())
-          {
-           jButton12.setEnabled(false);
-            posiciones_personajes[1][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-          else if(jButton13.isEnabled())
-          {
-           jButton13.setEnabled(false);
-            posiciones_personajes[4][1]=posiciones_personajes[4][1];
-              tablero[ posiciones_personajes[4][0]][ posiciones_personajes[4][1]].setIcon(caballero2);
-          }
-      
-      }
-}
-else if(menu.orden_jugador_2[contador_orden].equals("princesa")){
-try{
-tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(null);
-tablero[ posiciones_personajes[5][0]+1][ posiciones_personajes[5][1]].setIcon(princesa2);
-posiciones_personajes[5][0]=posiciones_personajes[5][0]+1;
-jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
-     }
-     catch(Exception NullPointerException){
-    
-          if(jButton4.isEnabled()){
-              jButton4.setEnabled(false);
-              posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-                      }
-          else if(jButton4.isEnabled())
-          {
-           jButton4.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton5.isEnabled())
-          {
-           jButton5.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton6.isEnabled())
-          {
-           jButton6.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-          else if(jButton7.isEnabled())
-          {
-           jButton7.setEnabled(false);
-            posiciones_personajes[5][1]=posiciones_personajes[5][1];
-              tablero[ posiciones_personajes[5][0]][ posiciones_personajes[5][1]].setIcon(princesa2);
-          }
-      
-     }
-}}
-        
+        else if (jLabel8.getText().equals("Jugador 2")) {
+            if (menu.orden_jugador_2[contador_orden].equals("mago")) {
+                try {
+                    tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[3][0] + 1][posiciones_personajes[3][1]].setIcon(mago2);
+                    posiciones_personajes[3][0] = posiciones_personajes[3][0] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                     
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        tablero[posiciones_personajes[3][0]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);                       
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        tablero[posiciones_personajes[3][3]][posiciones_personajes[3][1]].setIcon(mago2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_2[contador_orden].equals("caballero")) {
+                try {
+                    tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(null);
+
+                    tablero[posiciones_personajes[4][0] + 1][posiciones_personajes[4][1]].setIcon(caballero2);
+                    posiciones_personajes[4][0] = posiciones_personajes[4][0] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton9.isEnabled()) {
+                        jButton9.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton10.isEnabled()) {
+                        jButton10.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton11.isEnabled()) {
+                        jButton11.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton12.isEnabled()) {
+                        jButton12.setEnabled(false);
+                        posiciones_personajes[1][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    } else if (jButton13.isEnabled()) {
+                        jButton13.setEnabled(false);
+                        posiciones_personajes[4][1] = posiciones_personajes[4][1];
+                        tablero[posiciones_personajes[4][0]][posiciones_personajes[4][1]].setIcon(caballero2);
+                    }
+
+                }
+            } else if (menu.orden_jugador_2[contador_orden].equals("princesa")) {
+                try {
+                    tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(null);
+                    tablero[posiciones_personajes[5][0] + 1][posiciones_personajes[5][1]].setIcon(princesa2);
+                    posiciones_personajes[5][0] = posiciones_personajes[5][0] + 1;
+                    jLabel10.setText((Integer.parseInt(jLabel10.getText()) - 1) + "");
+                } catch (Exception NullPointerException) {
+
+                    if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton4.isEnabled()) {
+                        jButton4.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton5.isEnabled()) {
+                        jButton5.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton6.isEnabled()) {
+                        jButton6.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    } else if (jButton7.isEnabled()) {
+                        jButton7.setEnabled(false);
+                        posiciones_personajes[5][1] = posiciones_personajes[5][1];
+                        tablero[posiciones_personajes[5][0]][posiciones_personajes[5][1]].setIcon(princesa2);
+                    }
+
+                }
+               
+            }
+            if(jLabel10.getText().equals("0")){
+                jLabel8.setText("Jugador 1");
+                jButton13.setEnabled(false);
+                jButton14.setEnabled(false);
+                jButton15.setEnabled(false);
+                jButton16.setEnabled(false);
+                contador_orden++;
+                }
+        }
+
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
@@ -1502,9 +1319,9 @@ jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
                 new tablero_frame().setVisible(true);
             }
         });
-        
+
     }
-    
+
     public static void matriz_tablero() {
         tamaño = Integer.parseInt(jComboBox1.getSelectedItem() + "");
         tablero = new JButton[tamaño][tamaño];
@@ -1515,7 +1332,7 @@ jLabel10.setText((Integer.parseInt(jLabel10.getText())-1)+"");
                 jPanel1.add(tablero[fila][columna]);
             }
         }
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
