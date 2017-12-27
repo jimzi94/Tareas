@@ -7,6 +7,7 @@ package proyecto1_201504482;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +39,9 @@ public class proceso extends Thread{
          if(minutos==5)
          {
              a=100;
+                JOptionPane.showMessageDialog(null, "Se ha acabado el tiempo");
          }
+         
         }
      
        
