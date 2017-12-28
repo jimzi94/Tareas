@@ -1897,7 +1897,11 @@ for(int a=0;a<=2;a++){
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos))) {
             bw.write("Ganador: Jugador "+jugador+" Orden jugador 1:"+orden1+" Orden jugador 2:"+orden2+" Tiempo: "+ jLabel3.getText()+":"+jLabel2.getText());
             bw.newLine();
+            records rec=new records();
+rec.show();
+
         }
+
 
 }
     public void reset_dado2() {

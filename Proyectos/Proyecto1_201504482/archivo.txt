@@ -5,3 +5,4 @@ Ganador: Jugador asdasd Orden jugador 1:->mago->caballero->princesa Orden jugado
 Ganador: Jugador asdasd Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->mago->caballero->princesa Tiempo: 0:6
 Ganador: Jugador asdasdasd Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->mago->caballero->princesa Tiempo: 0:59
 Ganador: Jugador asdasdas Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->mago->caballero->princesa Tiempo: 0:29
+Ganador: Jugador asdasd Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->mago->caballero->princesa Tiempo: 0:6
