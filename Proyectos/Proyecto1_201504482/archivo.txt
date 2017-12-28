@@ -1,0 +1,7 @@
+Ganador:2
+Ganador: Jugador 2 Orden jugador 1:->mago->princesa Orden jugador 2:->mago->caballero
+Ganador: Jugador 2 Orden jugador 1:->mago->princesa->caballero Orden jugador 2:->mago->princesa->caballero
+Ganador: Jugador asdasd Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->caballero->mago->princesa Tiempo: 0:6
+Ganador: Jugador asdasd Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->mago->caballero->princesa Tiempo: 0:6
+Ganador: Jugador asdasdasd Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->mago->caballero->princesa Tiempo: 0:59
+Ganador: Jugador asdasdas Orden jugador 1:->mago->caballero->princesa Orden jugador 2:->mago->caballero->princesa Tiempo: 0:29

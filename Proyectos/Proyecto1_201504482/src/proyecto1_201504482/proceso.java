@@ -5,6 +5,7 @@
  */
 package proyecto1_201504482;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,8 +17,10 @@ import javax.swing.JOptionPane;
 
 public class proceso extends Thread{
     private int minutos=0;
+    private int punteo1,punteo2;
     public proceso(){
-       
+       punteo1=0;
+       punteo2=0;
        
         
     }
@@ -40,10 +43,57 @@ public class proceso extends Thread{
          {
              a=100;
                 JOptionPane.showMessageDialog(null, "Se ha acabado el tiempo");
+                
+                 
          }
          
         }
      
        
     }
+    public void ganar() throws IOException{
+     if(tablero_frame.jButton7.isEnabled()){
+                punteo1=5;
+                }
+                else if(tablero_frame.jButton6.isEnabled())
+                {
+                    punteo1=4;
+                }
+                 else if(tablero_frame.jButton5.isEnabled())
+                {
+                    punteo1=3;
+                }
+                 else if(tablero_frame.jButton4.isEnabled())
+                {
+                    punteo1=3;
+                }
+                 if(tablero_frame.jButton12.isEnabled()){
+                punteo1=5;
+                }
+                else if(tablero_frame.jButton11.isEnabled())
+                {
+                    punteo1=4;
+                }
+                 else if(tablero_frame.jButton10.isEnabled())
+                {
+                    punteo1=3;
+                }
+                 else if(tablero_frame.jButton9.isEnabled())
+                {
+                    punteo1=3;
+                }
+                 tablero_frame  fr;
+                 if(punteo1>punteo2){
+                 tablero_frame.guardar(menu.jTextField1.getText());
+                 }
+                 else if(punteo1<punteo2)
+                 { tablero_frame.guardar(menu.jTextField2.getText());
+                 }
+                 else if(punteo1==punteo2){
+                 tablero_frame.guardar("empate");
+                 }
+     
+     
+     }
+     
 }
