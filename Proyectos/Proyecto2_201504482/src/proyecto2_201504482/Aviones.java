@@ -141,4 +141,29 @@ BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
                   bw.write("}");
                 bw.close();
 	}
+           public void servicio() throws FileNotFoundException, IOException
+	{
+             File fout = new File("archivo_avion_servicio.dot");
+FileOutputStream fos = new FileOutputStream(fout,false);
+
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+  bw.write("digraph {");
+		Nodo_Doble actual;
+		actual=primero;
+                
+		while(actual!=ultimo)
+		{ bw.write("Avion_"+actual.dato+"_"+actual.tamaño+"->"+"Avion_"+actual.next.dato+"_"+actual.next.tamaño);
+                           bw.newLine();
+                          bw.write("Avion_"+actual.next.dato+"_"+actual.next.tamaño+"->"+"Avion_"+actual.dato+"_"+actual.tamaño);
+			System.out.println(actual.dato);
+			actual=actual.next;
+                         
+      bw.newLine();
+		}
+               
+               bw.write("Avion_"+actual.dato+"_"+actual.tamaño);
+                System.out.println(actual.dato);
+                  bw.write("}");
+                bw.close();
+	}
 }
