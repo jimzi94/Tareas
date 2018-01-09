@@ -5,7 +5,6 @@
  */
 package hoja_de_trabajo_1_201504482;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;

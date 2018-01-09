@@ -1,15 +1,1 @@
-digraph {Avion_7_2->Avion_6_3
-Avion_6_3->Avion_7_2
-Avion_6_3->Avion_5_1
-Avion_5_1->Avion_6_3
-Avion_5_1->Avion_4_3
-Avion_4_3->Avion_5_1
-Avion_4_3->Avion_3_3
-Avion_3_3->Avion_4_3
-Avion_3_3->Avion_2_1
-Avion_2_1->Avion_3_3
-Avion_2_1->Avion_1_3
-Avion_1_3->Avion_2_1
-Avion_1_3->Avion_0_3
-Avion_0_3->Avion_1_3
-Avion_0_3}
+digraph {Avion_3_3}

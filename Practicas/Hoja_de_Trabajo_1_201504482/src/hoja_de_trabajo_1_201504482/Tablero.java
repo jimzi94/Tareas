@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 
 /**
@@ -23,14 +24,14 @@ import javax.swing.JButton;
 public class Tablero extends javax.swing.JFrame {
 
   public static JButton tablero[][]=new JButton[4][4];
+ JLabel[] eti=new JLabel[4];
     public Tablero() {
         initComponents();
         matriz_tablero();
         Nombres nomb = null;
         jLabel1.setText(nomb.jTextField1.getText());
         jLabel2.setText(nomb.jTextField2.getText());
-        
-        
+       
         
         
     }

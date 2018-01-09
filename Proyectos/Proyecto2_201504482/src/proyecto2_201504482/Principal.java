@@ -14,6 +14,8 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -21,34 +23,49 @@ import javax.swing.ImageIcon;
  */
 public class Principal extends javax.swing.JFrame {
 
-  
     Aviones aviones = new Aviones();
     Pasajeros pasajeros = new Pasajeros();
-    Servicios estaciones=new Servicios();
-    Aviones reparacion=new Aviones();
-    Aviones ventanillas=new Aviones();
+    Servicios estaciones = new Servicios();
+    Aviones reparacion = new Aviones();
+    Aviones ventanillas = new Aviones();
+    static JLabel[] filas=new JLabel[25];
+    static JScrollPane[] contenedores= new JScrollPane[25];
+    ImageIcon[] imagenes=new ImageIcon[25];
     int contadora_turnos;
     int contador_pasajeros;
     int contador_servicio;
-    
+
     public Principal() throws IOException {
 
         initComponents();
         contadora_turnos = 1;
         contador_pasajeros = 1;
-        contador_servicio=1;
+        contador_servicio = 1;
         File graf = new File("archivo_avion.png");
         graf.delete();
         File graf2 = new File("archivo_pasajeros.png");
         graf.delete();
-     
+           for(int a=0;a<3;a++){
+        filas[a]=new JLabel();
+        imagenes[a]=new ImageIcon("archivo_ventanillas.png");
+        filas[a].setIcon(imagenes[a]);
         
-        
-     
-          
+       filas[a].setBounds(1, 1, 100, 100);
+       contenedores[a]=new JScrollPane();
+       contenedores[a].setViewportView(filas[a]);
+       contenedores[a].setBounds(a*100, 5, 100, 100);
+         jPanel4.add(contenedores[a]);
+        }
+       for(int a=0;a<3;a++){
+           imagenes[a].getImage().flush();
+           filas[a].setIcon(imagenes[a]);
+          filas[a].repaint();
+       contenedores[a].repaint();
+      
+       }
+  jPanel4.repaint();
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,7 +87,6 @@ public class Principal extends javax.swing.JFrame {
         label_ventanillas = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
         jLabel6 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -160,7 +176,7 @@ public class Principal extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -180,17 +196,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 270, Short.MAX_VALUE)
         );
 
         jLabel6.setText("Filas de Pasajeros");
@@ -256,16 +266,12 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(164, 164, 164)
                         .addComponent(jLabel4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(214, 214, 214)
-                                .addComponent(jLabel5)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(252, 252, 252)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,43 +279,34 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addGap(18, 18, 18))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addGap(27, 27, 27)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                            .addComponent(jTextField3)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(192, 192, 192)
+                                .addComponent(jLabel6)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(119, 119, 119)
-                                            .addComponent(jLabel7))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 90, Short.MAX_VALUE)))))
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(27, 27, 27)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                    .addComponent(jTextField3)))
+                            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(109, 109, 109)
+                                    .addComponent(jLabel7))
+                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -333,12 +330,13 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -353,118 +351,124 @@ public class Principal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(29, 29, 29))
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-refrescar();
-     try{
-        try {
-           if(!aviones.estavacio()){
-            switch (aviones.ultimo.tamaño) {
-                case "1":
-                    reparacion.alta(aviones.ultimo.dato, valor_random(3,1), aviones.ultimo.tamaño);
-                    reparacion.servicio();
-                    aviones.delete(aviones.ultimo.dato);
-                    aviones.imprimir();
-                    System.out.println("El tamaño es pequeño");
-                    for (int con = 0; con < aviones.ultimo.pasajeros; con++) {
-                        pasajeros.addLast(contador_pasajeros, valor_random(10,1), valor_random(4,1), valor_random(3,1));
-                        contador_pasajeros++;
-                    }
-                    pasajeros.imprimir();
-                    dibujar("archivo_pasajeros");
-                    break;
-                case "2":
-                    if (contadora_turnos == 2) {
-                         reparacion.alta(aviones.ultimo.dato,valor_random(3,1), aviones.ultimo.tamaño);
-                    reparacion.servicio();
-                        aviones.delete(aviones.ultimo.dato);
-                        aviones.imprimir();
-                        System.out.println("El tamaño es mediano");
-                        contadora_turnos = 0;
-                        for (int con = 0; con < aviones.ultimo.pasajeros; con++) {
-                        pasajeros.addLast(contador_pasajeros, valor_random(10,1), valor_random(4,1), valor_random(3,1));
-                        contador_pasajeros++;
-                    }
-                    }
-                    contadora_turnos++;
-                       pasajeros.imprimir();
-                    dibujar("archivo_pasajeros");
-                    break;
-                case "3":
-                    if (contadora_turnos == 3) {
-                         reparacion.alta(aviones.ultimo.dato, valor_random(3,1), aviones.ultimo.tamaño);
-                    reparacion.servicio();
-                        aviones.delete(aviones.ultimo.dato);
-                        aviones.imprimir();
-                        contadora_turnos = 0;
-                        for (int con = 0; con < aviones.ultimo.pasajeros; con++) {
-                        pasajeros.addLast(contador_pasajeros, valor_random(10,1), valor_random(4,1), valor_random(3,1));
-                        contador_pasajeros++;
-                    }
-                        System.out.println("El tamaño es grande");
-                    }
-                    contadora_turnos++;
-                    break;
-                default:
-                    break;
-            }}
-           
-           
-           
+        refrescar();
+          for(int a=0;a<3;a++){
+        filas[a]=new JLabel();
+        imagenes[a]=new ImageIcon("archivo_ventanillas.png");
+        filas[a].setIcon(imagenes[a]);
         
-           
-           
-           
-           
-           
-           
-           
-           
-           
-
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+       filas[a].setBounds(1, 1, 100, 100);
+       contenedores[a]=new JScrollPane();
+       contenedores[a].setViewportView(filas[a]);
+       contenedores[a].setBounds(a*100, 5, 100, 100);
+         jPanel4.add(contenedores[a]);
+        }
+       for(int a=0;a<3;a++){
+           imagenes[a].getImage().flush();
+           filas[a].setIcon(imagenes[a]);
+          filas[a].repaint();
+       contenedores[a].repaint();
+      
+       }
+  jPanel4.repaint();
+        try {
+            try {
+                if (!aviones.estavacio()) {
+                    switch (aviones.ultimo.tamaño) {
+                        case "1":
+                            reparacion.alta(aviones.ultimo.dato, valor_random(3, 1), aviones.ultimo.tamaño);
+                            reparacion.servicio();
+                            aviones.delete(aviones.ultimo.dato);
+                            aviones.imprimir();
+                            System.out.println("El tamaño es pequeño");
+                            for (int con = 0; con < aviones.ultimo.pasajeros; con++) {
+                                pasajeros.addLast(contador_pasajeros, valor_random(10, 1), valor_random(4, 1), valor_random(3, 1));
+                                contador_pasajeros++;
+                            }
+                            pasajeros.imprimir();
+                            dibujar("archivo_pasajeros");
+                            break;
+                        case "2":
+                            if (contadora_turnos == 2) {
+                                reparacion.alta(aviones.ultimo.dato, valor_random(3, 1), aviones.ultimo.tamaño);
+                                reparacion.servicio();
+                                aviones.delete(aviones.ultimo.dato);
+                                aviones.imprimir();
+                                System.out.println("El tamaño es mediano");
+                                contadora_turnos = 0;
+                                for (int con = 0; con < aviones.ultimo.pasajeros; con++) {
+                                    pasajeros.addLast(contador_pasajeros, valor_random(10, 1), valor_random(4, 1), valor_random(3, 1));
+                                    contador_pasajeros++;
+                                }
+                            }
+                            contadora_turnos++;
+                            pasajeros.imprimir();
+                            dibujar("archivo_pasajeros");
+                            break;
+                        case "3":
+                            if (contadora_turnos == 3) {
+                                reparacion.alta(aviones.ultimo.dato, valor_random(3, 1), aviones.ultimo.tamaño);
+                                reparacion.servicio();
+                                aviones.delete(aviones.ultimo.dato);
+                                aviones.imprimir();
+                                contadora_turnos = 0;
+                                for (int con = 0; con < aviones.ultimo.pasajeros; con++) {
+                                    pasajeros.addLast(contador_pasajeros, valor_random(10, 1), valor_random(4, 1), valor_random(3, 1));
+                                    contador_pasajeros++;
+                                }
+                                System.out.println("El tamaño es grande");
+                            }
+                            contadora_turnos++;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception e) {
+                jLabel1.setText("No hay aviones");
+            }
+            try {
+                if (aviones.estavacio()) {
+                    jLabel1.setText("No hay aviones");
+                    jLabel1.setIcon(null);
+                } else {
+                    dibujar("archivo_avion");
+                    ImageIcon ico = new ImageIcon("archivo_avion.png");
+                    ico.getImage().flush();
+                    jLabel1.setIcon(ico);
+                    dibujar("archivo_pasajeros");
+                    ImageIcon ico_pasajeros = new ImageIcon("archivo_pasajeros.png");
+                    ico_pasajeros.getImage().flush();
+                    label_pasajeros.setIcon(ico_pasajeros);
+                    dibujar("archivo_avion_servicio");
+                    ImageIcon ico_avion_servicio = new ImageIcon("archivo_avion_servicio.png");
+                    ico_avion_servicio.getImage().flush();
+                    label_aviones_servicio.setIcon(ico_avion_servicio);
+                }
+            } catch (Exception e) {
+            }
         } catch (Exception e) {
-            jLabel1.setText("No hay aviones");
         }
-        try{
-        if (aviones.estavacio()) {
-            jLabel1.setText("No hay aviones");
-            jLabel1.setIcon(null);
-        } else {
-            dibujar("archivo_avion");
-            ImageIcon ico = new ImageIcon("archivo_avion.png");
-            ico.getImage().flush();
-            jLabel1.setIcon(ico);
-            
-            dibujar("archivo_pasajeros");
-            ImageIcon ico_pasajeros = new ImageIcon("archivo_pasajeros.png");
-            ico_pasajeros.getImage().flush();
-            label_pasajeros.setIcon(ico_pasajeros);
-            dibujar("archivo_avion_servicio");
-            ImageIcon ico_avion_servicio = new ImageIcon("archivo_avion_servicio.png");
-            ico_avion_servicio.getImage().flush();
-            label_aviones_servicio.setIcon(ico_avion_servicio);
-        }}
-        catch(Exception e){
-        }
-}
-catch(Exception e){
-}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
         dibujar("archivo_pasajeros");
         int tipo, pasajeros = 0;
         Random rn = new Random();
         int range;
-        for (int cont = 0; cont < Integer.parseInt(jTextField1.getText()); cont++) {
+        for (int cont = 1; cont <= Integer.parseInt(jTextField1.getText()); cont++) {
             tipo = (int) (Math.random() * 3) + 1;
             switch (tipo) {
                 case 1:
@@ -483,12 +487,9 @@ catch(Exception e){
                     break;
             }
             aviones.alta(cont, pasajeros, tipo + "");
-
         }
         try {
-
             aviones.imprimir();
-
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -496,31 +497,47 @@ catch(Exception e){
         ImageIcon ico = new ImageIcon("archivo_avion.png");
         ico.getImage().flush();
         jLabel1.setIcon(ico);
-        
-        
-        
-for(int a=0;a<=Integer.parseInt(jTextField2.getText());a++){
-estaciones.addLast(a);
-}
-      
+        for (int a = 1; a <= Integer.parseInt(jTextField2.getText()); a++) {
+            estaciones.addLast(a);
+        }
 
- for(int a=0;a<=Integer.parseInt(jTextField3.getText());a++){
-       ventanillas.alta(a, 0, null);
- }
-         try {
+        for (int a = 1; a <= Integer.parseInt(jTextField3.getText()); a++) {
+            ventanillas.alta(a, 0, null);
+        }
+       for(int a=0;a<3;a++){
+        filas[a]=new JLabel();
+        imagenes[a]=new ImageIcon("archivo_ventanillas.png");
+        filas[a].setIcon(imagenes[a]);
+        
+       filas[a].setBounds(1, 1, 100, 100);
+       contenedores[a]=new JScrollPane();
+       contenedores[a].setViewportView(filas[a]);
+       contenedores[a].setBounds(a*100, 5, 100, 100);
+         jPanel4.add(contenedores[a]);
+        }
+       for(int a=0;a<3;a++){
+           imagenes[a].getImage().flush();
+           filas[a].setIcon(imagenes[a]);
+          filas[a].repaint();
+       contenedores[a].repaint();
+      
+       }
+  jPanel4.repaint();
+        try {
             estaciones.imprimir();
-             ventanillas.ventanillas();
+            ventanillas.ventanillas();
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+      
         dibujar("archivo_ventanillas");
-dibujar("archivo_Servicios");
-refrescar();
-
+        dibujar("archivo_Servicios");
+        refrescar();
+  
     }//GEN-LAST:event_jButton2ActionPerformed
-
-
+ 
+     
+    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             try {
@@ -552,19 +569,19 @@ refrescar();
             pbuilder.redirectErrorStream(true);
             //Ejecuta el proceso
             pbuilder.start();
-
         } catch (Exception e) {
         }
     }
-    public static void refrescar(){
-    
-     ImageIcon ico_servicios = new ImageIcon("archivo_Servicios.png");
-            ico_servicios.getImage().flush();
-            label_servicios.setIcon(ico_servicios);
-               ImageIcon ico_ventanillas = new ImageIcon("archivo_ventanillas.png");
-            ico_ventanillas.getImage().flush();
-            label_ventanillas.setIcon(ico_ventanillas);
-    
+
+    public static void refrescar() {
+
+        ImageIcon ico_servicios = new ImageIcon("archivo_Servicios.png");
+        ico_servicios.getImage().flush();
+        label_servicios.setIcon(ico_servicios);
+        ImageIcon ico_ventanillas = new ImageIcon("archivo_ventanillas.png");
+        ico_ventanillas.getImage().flush();
+        label_ventanillas.setIcon(ico_ventanillas);
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -581,13 +598,12 @@ refrescar();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private static javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
