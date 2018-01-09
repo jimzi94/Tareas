@@ -5,14 +5,6 @@
  */
 package proyecto2_201504482;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import javax.swing.DefaultListModel;
 
 /**
  *
@@ -24,7 +16,7 @@ public class Proyecto2_201504482 extends Aviones{
      * @param args the command line arguments
      */
     String data;
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
      
     }
     

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyecto2_201504482;
 
 import java.io.BufferedWriter;
@@ -162,6 +158,33 @@ BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 		}
                
                bw.write("Avion_"+actual.dato+"_"+actual.tamaño);
+                System.out.println(actual.dato);
+                  bw.write("}");
+                bw.close();
+	}
+           
+           
+           public void ventanillas() throws FileNotFoundException, IOException
+	{
+             File fout = new File("archivo_ventanillas.dot");
+FileOutputStream fos = new FileOutputStream(fout,false);
+
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+  bw.write("digraph {rankdir=LR ");
+		Nodo_Doble actual;
+		actual=primero;
+                
+		while(actual!=ultimo)
+		{ bw.write("Ventanilla_"+actual.dato+"->"+"Ventanilla_"+actual.next.dato);
+                           bw.newLine();
+                          bw.write("Ventanilla_"+actual.next.dato+"->"+"Ventanilla_"+actual.dato);
+			System.out.println(actual.dato);
+			actual=actual.next;
+                         
+      bw.newLine();
+		}
+               
+               bw.write("Ventanilla_"+actual.dato);
                 System.out.println(actual.dato);
                   bw.write("}");
                 bw.close();

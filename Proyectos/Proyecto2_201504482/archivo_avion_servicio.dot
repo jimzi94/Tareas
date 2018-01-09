@@ -1,9 +1,3 @@
 digraph {Avion_4_3->Avion_3_1
 Avion_3_1->Avion_4_3
-Avion_3_1->Avion_2_1
-Avion_2_1->Avion_3_1
-Avion_2_1->Avion_1_3
-Avion_1_3->Avion_2_1
-Avion_1_3->Avion_0_3
-Avion_0_3->Avion_1_3
-Avion_0_3}
+Avion_3_1}

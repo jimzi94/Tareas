@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyecto2_201504482;
 
 import java.io.BufferedWriter;
@@ -46,7 +42,7 @@ public class Servicios {
         return this;
     }
 
-//Metodo para borrar al final de la lista.
+
     public Nodo_Servicios deleteLast() {
         Nodo_Servicios eliminar = null;
         if(siVacio()) {
@@ -70,11 +66,11 @@ public class Servicios {
         this.tamano--;
         return eliminar;
     }
-//Metodo que imprime el tamaño de la lista.
-    public void tamano() {
+
+    public void Size() {
         JOptionPane.showMessageDialog(null, "El tamaño es:\n " + this.tamano);
     }
-//Metodo que imprime la lista y los valores ingresados.
+
     public void imprimir() throws FileNotFoundException, IOException {
         
              File fout = new File("archivo_Servicios.dot");
