@@ -27,6 +27,7 @@ public class Principal extends javax.swing.JFrame {
     Aviones aviones = new Aviones();
     Pasajeros pasajeros = new Pasajeros();
     Servicios estaciones=new Servicios();
+    Aviones reparacion=new Aviones();
     int contadora_turnos;
     int contador_pasajeros;
 

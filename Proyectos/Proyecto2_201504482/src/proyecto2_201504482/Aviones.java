@@ -93,6 +93,9 @@ public class Aviones {
 		}
 		return false;
 	}
+        public Nodo_Doble retornar(){
+        return ultimo;
+        }
 
         public void imprimir2()
 	{
