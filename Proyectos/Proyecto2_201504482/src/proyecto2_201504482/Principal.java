@@ -20,7 +20,7 @@ import javax.swing.JScrollPane;
  * @author Jimbo
  */
 public class Principal extends javax.swing.JFrame {
-
+//Se Declaran las variables globales que se utilizaran en la ventana principal
     Aviones aviones = new Aviones();
     Pasajeros pasajeros = new Pasajeros();
     Servicios estaciones = new Servicios();
@@ -350,23 +350,31 @@ String mensaje="";
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Se manda a llamar al evento que refresca las imagenes en los labels
         refrescar();
         try {
+            //se llena el mensaje que se mostrara en consola
             mensaje=mensaje+"Turno: "+contador_turnos+"\n\n";
             try {
                 if (!aviones.estavacio()) {
+                    //Se Pregunta la dimension del avion
                     switch (aviones.ultimo.tamaño) {
                         case "1":
+                            //se encola en el area de servicio
                             reparacion.alta(aviones.ultimo.dato, valor_random(3, 1), aviones.ultimo.tamaño);
                             reparacion.servicio();
                             mensaje=mensaje+"\n"+"Arribo Avion: "+aviones.ultimo.dato+"\n"+"Tamaño: Pequeño"+"\n"+"Numero de Pasajeros:"+aviones.ultimo.pasajeros+"\n"+"Estacion de Servicio: Avion:"+aviones.ultimo.dato;
+                            //Se elimina de la cola el avion
                             aviones.delete(aviones.ultimo.dato);
+                            //Se manda a escribir el documento para la grafica
                             aviones.imprimir();
                             System.out.println("El tamaño es pequeño");
+                            //Se encolan los pasajeros
                             for (int con = 0; con < aviones.ultimo.pasajeros; con++) {
                                 pasajeros.addLast(contador_pasajeros, valor_random(10, 1), valor_random(4, 1), valor_random(3, 1));
                                 contador_pasajeros++;
                             }
+                            //Se manda a escribir el documento para la grafica
                             pasajeros.imprimir();
                            
                             break;
@@ -415,9 +423,11 @@ String mensaje="";
             }
             try {
                 if (aviones.estavacio()) {
+                    //Si esta vacio deja de desencolar aviones
                     jLabel1.setText("No hay aviones");
                     jLabel1.setIcon(null);
                 } else {
+                    //manda a graficar la pila de aviones
                     dibujar("archivo_avion");
                     ImageIcon ico = new ImageIcon("archivo_avion.png");
                     ico.getImage().flush();
@@ -445,11 +455,12 @@ String mensaje="";
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 filas=new JLabel[Integer.parseInt(jTextField3.getText())];        
 contenedores= new JScrollPane[Integer.parseInt(jTextField3.getText())];
-
+//Manda a dibujar la grafica de los pasajeros
         dibujar("archivo_pasajeros");
         int tipo, pasajeros = 0;
         Random rn = new Random();
         int range;
+        //Llena la lista de aviones con sus datos correspondientes
         for (int cont = 1; cont <= Integer.parseInt(jTextField1.getText()); cont++) {
             tipo = (int) (Math.random() * 3) + 1;
             switch (tipo) {
@@ -475,14 +486,16 @@ contenedores= new JScrollPane[Integer.parseInt(jTextField3.getText())];
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //Manda a dibujar la grafica de los aviones
         dibujar("archivo_avion");
         ImageIcon ico = new ImageIcon("archivo_avion.png");
         ico.getImage().flush();
         jLabel1.setIcon(ico);
+        //Llena la cola de las estaciones de servicio
         for (int a = 1; a <= Integer.parseInt(jTextField2.getText()); a++) {
             estaciones.addLast(a);
         }
-
+        //Llena la cola de las ventanillas
         for (int a = 1; a <= Integer.parseInt(jTextField3.getText()); a++) {
             ventanillas.alta(a, 0, null);
             mensaje=mensaje+"Ventanilla: "+ventanillas.primero.dato+" Libre\n";
@@ -506,7 +519,7 @@ contenedores= new JScrollPane[Integer.parseInt(jTextField3.getText())];
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+      //Manda a dibujar las graficas de Ventanillas y Servicios
         dibujar("archivo_ventanillas");
         dibujar("archivo_Servicios");
         refrescar();
@@ -524,7 +537,7 @@ contenedores= new JScrollPane[Integer.parseInt(jTextField3.getText())];
             }
         });
     }
-   
+   //Este metodo regresa un valor random en el rango que se le de
     public int valor_random(int maximo, int minimo) {
         int valor;
         Random rn = new Random();
@@ -532,6 +545,7 @@ contenedores= new JScrollPane[Integer.parseInt(jTextField3.getText())];
         valor = rn.nextInt(range) + minimo;
         return valor;
     }
+    //Es el metodo que grafica las listas
     public static void dibujar(String tipo) {
         try {
             ProcessBuilder pbuilder;
@@ -542,7 +556,7 @@ contenedores= new JScrollPane[Integer.parseInt(jTextField3.getText())];
         } catch (Exception e) {
         }
     }
-
+//Este metodo refresca las imagenes de los Labels
     public static void refrescar() {
 try{
         ImageIcon ico_servicios = new ImageIcon("archivo_Servicios.png");
