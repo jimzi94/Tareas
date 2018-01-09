@@ -1,0 +1,4 @@
+digraph {rankdir=LR
+Estacion_1->
+Estacion_2->
+Estacion_3->Estacion_4}
