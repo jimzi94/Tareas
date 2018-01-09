@@ -45,25 +45,7 @@ public class Principal extends javax.swing.JFrame {
         graf.delete();
         File graf2 = new File("archivo_pasajeros.png");
         graf.delete();
-           for(int a=0;a<3;a++){
-        filas[a]=new JLabel();
-        imagenes[a]=new ImageIcon("archivo_ventanillas.png");
-        filas[a].setIcon(imagenes[a]);
-        
-       filas[a].setBounds(1, 1, 100, 100);
-       contenedores[a]=new JScrollPane();
-       contenedores[a].setViewportView(filas[a]);
-       contenedores[a].setBounds(a*100, 5, 100, 100);
-         jPanel4.add(contenedores[a]);
-        }
-       for(int a=0;a<3;a++){
-           imagenes[a].getImage().flush();
-           filas[a].setIcon(imagenes[a]);
-          filas[a].repaint();
-       contenedores[a].repaint();
-      
-       }
-  jPanel4.repaint();
+         
     }
 
     @SuppressWarnings("unchecked")
@@ -360,25 +342,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         refrescar();
-          for(int a=0;a<3;a++){
-        filas[a]=new JLabel();
-        imagenes[a]=new ImageIcon("archivo_ventanillas.png");
-        filas[a].setIcon(imagenes[a]);
-        
-       filas[a].setBounds(1, 1, 100, 100);
-       contenedores[a]=new JScrollPane();
-       contenedores[a].setViewportView(filas[a]);
-       contenedores[a].setBounds(a*100, 5, 100, 100);
-         jPanel4.add(contenedores[a]);
-        }
-       for(int a=0;a<3;a++){
-           imagenes[a].getImage().flush();
-           filas[a].setIcon(imagenes[a]);
-          filas[a].repaint();
-       contenedores[a].repaint();
-      
-       }
-  jPanel4.repaint();
         try {
             try {
                 if (!aviones.estavacio()) {
@@ -432,7 +395,6 @@ public class Principal extends javax.swing.JFrame {
                             break;
                     }
                 }
-                
             } catch (IOException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception e) {
@@ -504,7 +466,7 @@ public class Principal extends javax.swing.JFrame {
         for (int a = 1; a <= Integer.parseInt(jTextField3.getText()); a++) {
             ventanillas.alta(a, 0, null);
         }
-       for(int a=0;a<3;a++){
+       for(int a=0;a<Integer.parseInt(jTextField3.getText());a++){
         filas[a]=new JLabel();
         imagenes[a]=new ImageIcon("archivo_ventanillas.png");
         filas[a].setIcon(imagenes[a]);
@@ -515,13 +477,7 @@ public class Principal extends javax.swing.JFrame {
        contenedores[a].setBounds(a*100, 5, 100, 100);
          jPanel4.add(contenedores[a]);
         }
-       for(int a=0;a<3;a++){
-           imagenes[a].getImage().flush();
-           filas[a].setIcon(imagenes[a]);
-          filas[a].repaint();
-       contenedores[a].repaint();
-      
-       }
+    
   jPanel4.repaint();
         try {
             estaciones.imprimir();
