@@ -1,5 +1,0 @@
-digraph {Avion_1_3->Avion_2_2
-Avion_2_2->Avion_1_3
-Avion_2_2->Avion_3_1
-Avion_3_1->Avion_2_2
-Avion_3_1}

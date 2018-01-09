@@ -60,6 +60,7 @@ public class Aviones {
 
 	public boolean delete(int num)
 	{
+            try{
 		Nodo_Doble anterior=null;
 		Nodo_Doble actual=primero;
 		while(actual!=ultimo)
@@ -87,6 +88,10 @@ public class Aviones {
 			ultimo=actual.ant;
 			return true;
 		}
+            }
+            catch(Exception e){
+            
+            }
 		return false;
 	}
         public Nodo_Doble retornar(){
@@ -114,6 +119,7 @@ public class Aviones {
 	}
         public void imprimir() throws FileNotFoundException, IOException
 	{
+            try{
              File fout = new File("archivo_avion.dot");
 FileOutputStream fos = new FileOutputStream(fout,false);
 
@@ -136,9 +142,12 @@ BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
                 System.out.println(actual.dato);
                   bw.write("}");
                 bw.close();
+            }
+            catch(Exception e){}
 	}
            public void servicio() throws FileNotFoundException, IOException
 	{
+            try{
              File fout = new File("archivo_avion_servicio.dot");
 FileOutputStream fos = new FileOutputStream(fout,false);
 
@@ -161,11 +170,17 @@ BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
                 System.out.println(actual.dato);
                   bw.write("}");
                 bw.close();
+            }
+            catch(Exception e)
+            {
+            
+            }
 	}
            
            
            public void ventanillas() throws FileNotFoundException, IOException
 	{
+            try{
              File fout = new File("archivo_ventanillas.dot");
 FileOutputStream fos = new FileOutputStream(fout,false);
 
@@ -187,6 +202,9 @@ BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
                bw.write("Ventanilla_"+actual.dato);
                 System.out.println(actual.dato);
                   bw.write("}");
-                bw.close();
+                bw.close();}
+            catch(Exception e){
+            
+            }
 	}
 }

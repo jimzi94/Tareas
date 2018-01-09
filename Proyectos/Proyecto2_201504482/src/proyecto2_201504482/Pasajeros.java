@@ -93,4 +93,37 @@ BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
           
         }
     } 
+
+    public Nodo_Simple getPrimero() {
+        return primero;
+    }
+
+    public Nodo_Simple getUltimo() {
+        return ultimo;
+    }
+    
+     public void escribir_archivo(int numero) throws FileNotFoundException, IOException {
+        try{
+             File fout = new File("archivo_pasajeros_cola_"+numero+".dot");
+FileOutputStream fos = new FileOutputStream(fout,false);
+
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+  bw.write("digraph {");
+        if(tamano != 0) {
+            Nodo_Simple temp = primero;
+            String str = "";
+            for(int i = 0; i < this.tamano-1; i++) {
+                 bw.newLine();
+                bw.write("Pasajero_"+temp.dato+"->");          
+                str = str + temp.dato + "\n";
+                temp = temp.nodoDer;        
+            }
+              bw.write("Pasajero_"+temp.dato);
+               bw.write("}");
+                bw.close();
+          
+        }
+        }
+        catch(Exception e){}
+    } 
 }

@@ -72,7 +72,7 @@ public class Servicios {
     }
 
     public void imprimir() throws FileNotFoundException, IOException {
-        
+        try{
              File fout = new File("archivo_Servicios.dot");
 FileOutputStream fos = new FileOutputStream(fout,false);
 
@@ -90,6 +90,9 @@ BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
               bw.write("Estacion_"+temp.dato);
                bw.write("}");
                 bw.close();
+                
         }
+        
+        }catch(Exception e){}
     } 
 }
