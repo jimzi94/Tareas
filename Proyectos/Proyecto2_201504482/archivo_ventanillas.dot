@@ -1,7 +1,17 @@
-digraph {rankdir=LR Ventanilla_1->Ventanilla_2
+digraph {rankdir=LR Ventanilla_0->Ventanilla_1
+Ventanilla_1->Ventanilla_0
+Ventanilla_1->Ventanilla_2
 Ventanilla_2->Ventanilla_1
 Ventanilla_2->Ventanilla_3
 Ventanilla_3->Ventanilla_2
 Ventanilla_3->Ventanilla_4
 Ventanilla_4->Ventanilla_3
-Ventanilla_4}
+Ventanilla_4->Ventanilla_5
+Ventanilla_5->Ventanilla_4
+Ventanilla_5->Ventanilla_6
+Ventanilla_6->Ventanilla_5
+Ventanilla_6->Ventanilla_7
+Ventanilla_7->Ventanilla_6
+Ventanilla_7->Ventanilla_8
+Ventanilla_8->Ventanilla_7
+Ventanilla_8}

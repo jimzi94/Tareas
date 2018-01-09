@@ -41,15 +41,10 @@ public class Principal extends javax.swing.JFrame {
         graf.delete();
         File graf2 = new File("archivo_pasajeros.png");
         graf.delete();
-      
+     
         
         
-        ventanillas.alta(1, 0, null);
-         ventanillas.alta(2, 0, null);
-          ventanillas.alta(3, 0, null);
-           ventanillas.alta(4, 0, null);
-           ventanillas.ventanillas();
-           dibujar("archivo_ventanillas");
+     
           
     }
 
@@ -72,6 +67,7 @@ public class Principal extends javax.swing.JFrame {
         label_pasajeros = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
+        label_ventanillas = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -155,6 +151,8 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 255));
         jPanel3.setForeground(new java.awt.Color(153, 153, 255));
+
+        jScrollPane3.setViewportView(label_ventanillas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -363,7 +361,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
+refrescar();
      try{
         try {
            if(!aviones.estavacio()){
@@ -504,16 +502,22 @@ catch(Exception e){
 for(int a=0;a<=Integer.parseInt(jTextField2.getText());a++){
 estaciones.addLast(a);
 }
-        try {
+      
+
+ for(int a=0;a<=Integer.parseInt(jTextField3.getText());a++){
+       ventanillas.alta(a, 0, null);
+ }
+         try {
             estaciones.imprimir();
+             ventanillas.ventanillas();
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
+        dibujar("archivo_ventanillas");
 dibujar("archivo_Servicios");
-            ImageIcon ico_servicios = new ImageIcon("archivo_Servicios.png");
-            ico_servicios.getImage().flush();
-            label_servicios.setIcon(ico_servicios);
+refrescar();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -552,6 +556,16 @@ dibujar("archivo_Servicios");
         } catch (Exception e) {
         }
     }
+    public static void refrescar(){
+    
+     ImageIcon ico_servicios = new ImageIcon("archivo_Servicios.png");
+            ico_servicios.getImage().flush();
+            label_servicios.setIcon(ico_servicios);
+               ImageIcon ico_ventanillas = new ImageIcon("archivo_ventanillas.png");
+            ico_ventanillas.getImage().flush();
+            label_ventanillas.setIcon(ico_ventanillas);
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -582,6 +596,7 @@ dibujar("archivo_Servicios");
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel label_aviones_servicio;
     private javax.swing.JLabel label_pasajeros;
-    private javax.swing.JLabel label_servicios;
+    private static javax.swing.JLabel label_servicios;
+    private static javax.swing.JLabel label_ventanillas;
     // End of variables declaration//GEN-END:variables
 }
